@@ -3,7 +3,9 @@ module.exports = {
 	async execute(interaction) {
   if (!interaction.isSelectMenu()) return;
 	interaction.member.roles.add(interaction.values)
-	//interaction.member.addRoles(interaction.values)
+	await interaction.update({ content: `You have been given the ${interaction.guild.roles.resolve(...interaction.values)} role!`, components: [] })
+	const role = interaction.guild.roles.resolve(...interaction.values)
+	console.log(role.name);
 
 
 
